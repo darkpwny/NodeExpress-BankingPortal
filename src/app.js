@@ -12,33 +12,38 @@ app.set('view engine','ejs');
 app.use(express.static('src/public'));
 
 const accountData = fs.readFileSync('src/json/accounts.json','utf8');
-const account = JSON.parse(accountData);
-console.log(account);
+const accounts = JSON.parse(accountData);
+console.log(accounts);
 
 const userData = fs.readFileSync('src/json/users.json','utf8');
-const user = JSON.parse(userData);
-console.log(user);
+const users = JSON.parse(userData);
+console.log(users);
 
 const indexViewBag = {
     title: 'Account Summary',
-    accounts: account
+    accounts: accounts
     };
 
 const savingsViewBag = {
     title: 'Savings',
-    account: account.savings
+    account: accounts.savings
     };
 const checkingViewBag = {
     title: 'Checking',
-    account: account.savings
+    account: accounts.checking
     };
 const creditViewBag = {
     title: 'Credit',
-    account: account.savings
+    account: accounts.credit
     };
+const profileViewBag =
+{
+    user : users[0]
+};
 
 app.get('/',(req,res)=>{res.render('index', indexViewBag);});
 app.get('/savings',(req,res)=>{res.render('account', savingsViewBag);});
 app.get('/credit',(req,res)=>{res.render('account', creditViewBag);});
 app.get('/checking',(req,res)=>{res.render('account', checkingViewBag);});
+app.get('/profile',(req,res)=>{res.render('profile', profileViewBag);});
 app.listen(3000,()=>console.log('PS Project Running on port 3000!'));
