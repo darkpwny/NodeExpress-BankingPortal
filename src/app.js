@@ -25,17 +25,15 @@ const indexViewBag = {
     };
 
 const savingsViewBag = {
-    title: 'Savings',
     account: accounts.savings
     };
 const checkingViewBag = {
-    title: 'Checking',
     account: accounts.checking
     };
 const creditViewBag = {
-    title: 'Credit',
     account: accounts.credit
     };
+    
 const profileViewBag =
 {
     user : users[0]
