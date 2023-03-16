@@ -1,11 +1,9 @@
 const fs = require('fs');
 const path = require('path');
 const express = require('express');
-
 const app = express();
 
 const viewpath = path.join( __dirname,'views');
-
 
 app.set('views',viewpath);
 app.set('view engine','ejs');
@@ -13,17 +11,13 @@ app.use(express.static('src/public'));
 
 const accountData = fs.readFileSync('src/json/accounts.json','utf8');
 const accounts = JSON.parse(accountData);
-console.log(accounts);
-
 const userData = fs.readFileSync('src/json/users.json','utf8');
 const users = JSON.parse(userData);
-console.log(users);
 
 const indexViewBag = {
     title: 'Account Summary',
     accounts: accounts
     };
-
 const savingsViewBag = {
     account: accounts.savings
     };
@@ -34,8 +28,7 @@ const creditViewBag = {
     account: accounts.credit
     };
     
-const profileViewBag =
-{
+const profileViewBag = {
     user : users[0]
 };
 
