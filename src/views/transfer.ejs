@@ -7,14 +7,14 @@
   <% } %>
   <span class="error"></span>
 
-  <form id="transferForm" method="post" action="/transfer">
+  <form id="transferForm" method="post" action="/services/transfer">
     <span>Transfer From: </span> 
     <select id="from" name="from" required>
       <option value="checking">Checking</option>
       <option value="savings">Savings</option>
     </select>
     <span> to: </span>
-    <select required id="to" name="to">
+    <select required id="xto" name="to">
       <option value="checking">Checking</option>
       <option value="savings">Savings</option>
     </select>
