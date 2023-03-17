@@ -19,7 +19,7 @@ app.use('/services',servicesRoutes);
 const {accounts} = require ('./data');
 const {users} = require ('./data');
 const {writeJSON} = require ('./data');
-console.log(accountRoutes);
+
 
 
 app.get('/',(req,res)=>{res.render('index', { title: 'Account Summary', accounts: accounts});});
